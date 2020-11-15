@@ -2,6 +2,7 @@
     "require": {
         "symfony/dotenv": "^5.1",
         "symfony/http-foundation": "^5.1",
-        "guzzlehttp/guzzle": "^7.2"
+        "guzzlehttp/guzzle": "^7.2",
+        "ext-json": "^7.4"
     }
 }
