@@ -4,5 +4,14 @@
         "symfony/http-foundation": "^5.1",
         "guzzlehttp/guzzle": "^7.2",
         "ext-json": "^7.4"
+    },
+   "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
     }
+  }
 }
