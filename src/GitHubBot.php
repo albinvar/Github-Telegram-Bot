@@ -30,7 +30,7 @@ class GitHubBot
     private function setMessage($typeEvent)
     {
         switch($typeEvent) {
-            case 'pushEvent':
+            case 'push':
                 $this->message .= "Commits:\n";
                 foreach ($this->payload->commits as $commit) {
                     $commitId = substr($commit->id, -7);
