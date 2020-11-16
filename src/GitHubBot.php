@@ -26,4 +26,20 @@ class GitHubBot
         
     }
     
+    private function setMessage($typeEvent)
+    {
+        switch($typeEvent) {
+            case 'pushEvent':
+                $this->message .= "Commits:\n";
+                foreach ($this->payload->commits as $commit) {
+                    $commitId = substr($commit->id, -7);
+                    $this->message .= "- by {$commit->author->name} with message: {$commit->message} ({$commitId}) \n";
+                }
+                $this->message .= "Pushed by : <b>{$this->payload->pusher->name}</b>\n";
+                break;
+            default:
+                $this->message .= "$typeEvent";
+        }
+    }
+    
 }
