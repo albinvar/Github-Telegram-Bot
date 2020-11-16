@@ -1,7 +1,8 @@
 <?php
-	require __DIR__.'/../config/bootstrap.php';
+	require __DIR__.'/config/config.php';
 	
 	$link = $_GET['link'];
+	$botApi = getApi();
 	
 	$text = str_replace("\n", "%0A", $text);
     $method_url = 'https://api.telegram.org/bot' . $botApi . '/setWebhook';
