@@ -19,4 +19,11 @@ class GitHubBot
         $this->api = $api;
         $this->chatId = $chatId;
     }
+    
+    public function getPayload()
+    {
+        $this->payload = json_decode($this->request->request->get('payload'));
+        
+    }
+    
 }
