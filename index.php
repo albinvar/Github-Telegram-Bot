@@ -1,9 +1,10 @@
 <?php
 use App\GitHubBot;
 
-require __DIR__.'/../config/bootstrap.php';
+require __DIR__.'/config/config.php';
 
-$botApi = getApi();
+$api = getApi();
 $chatId = "1145842752";
 
 $object = new GitHubBot($api, $chatId);
+$gb->sendMessage();
