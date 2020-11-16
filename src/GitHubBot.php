@@ -13,14 +13,20 @@ class GitHubBot
     private $message;
     private $request;
 
-    public function __construct($api, $chatId)
+    public function __construct($api)
     {
         $this->request = Request::createFromGlobals();
         $this->api = $api;
-        $this->chatId = $chatId;
+        $this->getChatId();
         $this->sendMessage();
     }
-
+    
+    public function getChatId()
+    {
+    	$data = json_decode(file_get_contents("php://input"));
+		$this->chatId = $data->message->chat->id;
+    }
+    
     public function getPayload()
     {
         $this->payload = json_decode($this->request->request->get('payload'));
