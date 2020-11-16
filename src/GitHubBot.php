@@ -24,7 +24,7 @@ class GitHubBot
     public function getPayload()
     {
         $this->payload = json_decode($this->request->request->get('payload'));
-        $this->setMessage($this->request->request->get('type'));
+        $this->setMessage($this->request->server->get('HTTP_X_GITHUB_EVENT'));
     }
 
     private function setMessage($typeEvent)
