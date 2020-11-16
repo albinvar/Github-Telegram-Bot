@@ -32,12 +32,17 @@ class GitHubBot
         switch($typeEvent) {
             case 'push':
 	            $count = count($this->payload->commits);
-                $this->message .= "⚙️ <b>{$count}</b> new commits to <b>{$this->payload->repository->name}:{$this->payload->repository->default_branch}</b>\n\n";
+				$noun =  ($count > 1) ? "commits" : "commit"; 
+                $this->message .= "⚙️ <b>{$count}</b> new {$noun} to <b>{$this->payload->repository->name}:{$this->payload->repository->default_branch}</b>\n\n";
                 foreach ($this->payload->commits as $commit) {
                     $commitId = substr($commit->id, -7);
                     $this->message .= "<a href=\"{$commit->url}\">{$commitId}</a>: {$commit->message} by <i>{$commit->author->name}</i>\n";
                 }
                 $this->message .= "\nPushed by : <b>{$this->payload->pusher->name}</b>\n";
+                break;
+			case 'ping':
+	            $count = count($this->payload->commits);
+                $this->message .= "♻️ <b>Connection Successfull</b>\n\n";
                 break;
             default:
                 $this->message .= "Invalid Request";
