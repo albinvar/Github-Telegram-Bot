@@ -31,15 +31,16 @@ class GitHubBot
     {
         switch($typeEvent) {
             case 'push':
-                $this->message .= "Commits:\n";
+	            $count = count($this->payload->commits);
+                $this->message .= "⚙️ <b>{$count}</b> new commits to <b>{$this->payload->repository->name}:{$this->payload->repository->default_branch}</b>\n\n";
                 foreach ($this->payload->commits as $commit) {
                     $commitId = substr($commit->id, -7);
-                    $this->message .= "- by {$commit->author->name} with message: {$commit->message} ({$commitId}) \n";
+                    $this->message .= "<a href=\"{$commit->url}\">{$commitId}</a>: {$commit->message} by <i>{$commit->author->name}</i>\n";
                 }
-                $this->message .= "Pushed by : <b>{$this->payload->pusher->name}</b>\n";
+                $this->message .= "\nPushed by : <b>{$this->payload->pusher->name}</b>\n";
                 break;
             default:
-                $this->message .= "$typeEvent";
+                $this->message .= "Invalid Request";
         }
     }
 

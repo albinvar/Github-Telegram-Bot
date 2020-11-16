@@ -7,4 +7,3 @@ $api = getApi();
 $chatId = "1145842752";
 
 $object = new GitHubBot($api, $chatId);
-$gb->sendMessage();
