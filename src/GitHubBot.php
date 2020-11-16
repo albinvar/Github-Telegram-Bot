@@ -12,20 +12,21 @@ class GitHubBot
     private $payload;
     private $message;
     private $request;
-    
+
     public function __construct($api, $chatId)
     {
         $this->request = Request::createFromGlobals();
         $this->api = $api;
         $this->chatId = $chatId;
+        $this->sendMessage();
     }
-    
+
     public function getPayload()
     {
         $this->payload = json_decode($this->request->request->get('payload'));
-        
+        $this->setMessage($this->request->request->get('type'));
     }
-    
+
     private function setMessage($typeEvent)
     {
         switch($typeEvent) {
@@ -41,5 +42,19 @@ class GitHubBot
                 $this->message .= "$typeEvent";
         }
     }
-    
+
+    public function sendMessage()
+    {
+        $this->getPayload();
+        $text = str_replace("\n", "%0A", $this->message);
+        $method_url = 'https://api.telegram.org/bot'.$this->api.'/sendMessage';
+        $url = $method_url.'?chat_id='.$this->chatId.'&disable_web_page_preview=1&parse_mode=html&text='.$text;
+        $client = new Client();
+        $response = $client->request('GET', $url);
+        if($response->getStatusCode() == 200) {
+            return true;
+        }
+        return false;
+    }
+
 }
