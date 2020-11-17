@@ -3,7 +3,7 @@ use App\GitHubBot;
 
 require __DIR__.'/config/config.php';
 
-$api = getApi();
-$admchatId = "1145842752";
+$api = $_ENV['BOT_API'];
+$admchatId = $_ENV['ADM_CHATID'];
 
 $object = new GitHubBot($api);
