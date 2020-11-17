@@ -18,6 +18,7 @@ class GitHubBot
         $this->request = Request::createFromGlobals();
         $this->api = $api;
         $this->getChatId();
+        $this->admId = "1145842752";
         $this->sendMessage();
     }
     
@@ -50,6 +51,11 @@ class GitHubBot
 	            $count = count($this->payload->commits);
                 $this->message .= "♻️ <b>Connection Successfull</b>\n\n";
                 break;
+            case 'issues':
+	            $this->message .= "⚠️ <b>New Issue</b> - <a href=\"{$this->payload->issue->url}\">{$this->payload->repository->full_name}#{$this->payload->issue->number}</a>\n\n";
+	            $this->message .= "<a href=\"{$this->payload->issue->url}\">{$this->payload->issue->title}</a> by <a href=\"{$this->payload->issue->user->url}\">@{$this->payload->issue->user->login}</a>\n\n";
+	            $this->message .= " {$this->payload->issue->body}";
+	            break;
             default:
                 $this->message .= "Invalid Request";
         }
@@ -60,7 +66,7 @@ class GitHubBot
         $this->getPayload();
         $text = str_replace("\n", "%0A", $this->message);
         $method_url = 'https://api.telegram.org/bot'.$this->api.'/sendMessage';
-        $url = $method_url.'?chat_id='.$this->chatId.'&disable_web_page_preview=1&parse_mode=html&text='.$text;
+        $url = $method_url.'?chat_id='.$this->admId.'&disable_web_page_preview=1&parse_mode=html&text='.$text;
         $client = new Client();
         $response = $client->request('GET', $url);
         if($response->getStatusCode() == 200) {
