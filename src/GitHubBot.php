@@ -13,12 +13,12 @@ class GitHubBot
     private $message;
     private $request;
 
-    public function __construct($api)
+    public function __construct($api, $chatId)
     {
         $this->request = Request::createFromGlobals();
         $this->api = $api;
         $this->getChatId();
-        $this->admId = "1145842752";
+        $this->admId = $chatId;
         $this->sendMessage();
     }
     
