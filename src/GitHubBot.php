@@ -60,11 +60,18 @@ class GitHubBot
                 $this->message .= "Invalid Request";
         }
     }
+    
+    public function charReplace()
+    {
+    	$this->chars = ["\n", "#"];
+	    $this->ascii = ["%0A", "%23"];
+    }
 
     public function sendMessage()
     {
         $this->getPayload();
-        $text = str_replace("\n", "%0A", $this->message);
+        $this->charReplace();
+        $text = str_replace($this->chars, $this->ascii, $this->message);
         $method_url = 'https://api.telegram.org/bot'.$this->api.'/sendMessage';
         $url = $method_url.'?chat_id='.$this->admId.'&disable_web_page_preview=1&parse_mode=html&text='.$text;
         $client = new Client();
