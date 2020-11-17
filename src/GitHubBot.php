@@ -63,15 +63,15 @@ class GitHubBot
     
     public function charReplace()
     {
-    	$this->chars = ["\n", "#"];
-	    $this->ascii = ["%0A", "%23"];
+    	$this->chars = ["\n"];
+	    $this->ascii = ["%0A"];
+		return str_replace($this->chars, $this->ascii, urlencode($this->message));
     }
 
     public function sendMessage()
     {
         $this->getPayload();
-        $this->charReplace();
-        $text = str_replace($this->chars, $this->ascii, $this->message);
+        $text = $this->charReplace();
         $method_url = 'https://api.telegram.org/bot'.$this->api.'/sendMessage';
         $url = $method_url.'?chat_id='.$this->admId.'&disable_web_page_preview=1&parse_mode=html&text='.$text;
         $client = new Client();
