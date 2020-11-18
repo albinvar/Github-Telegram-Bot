@@ -4,8 +4,49 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "329ba938bdd29bd76c5d31a30f7de393",
+    "content-hash": "a734916b0c6dcbdbcf4b3c27be50d1cc",
     "packages": [
+        {
+            "name": "eleirbag89/telegrambotphp",
+            "version": "1.3.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Eleirbag89/TelegramBotPHP.git",
+                "reference": "aa9ba838a51e34db41f0a827e9ec4b20023ffa48"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Eleirbag89/TelegramBotPHP/zipball/aa9ba838a51e34db41f0a827e9ec4b20023ffa48",
+                "reference": "aa9ba838a51e34db41f0a827e9ec4b20023ffa48",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Telegram.php",
+                    "TelegramErrorLogger.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gabriele Grillo",
+                    "email": "gabry.grillo@alice.it"
+                }
+            ],
+            "description": "A very simple PHP Telegram Bot API",
+            "support": {
+                "issues": "https://github.com/Eleirbag89/TelegramBotPHP/issues",
+                "source": "https://github.com/Eleirbag89/TelegramBotPHP/tree/master"
+            },
+            "time": "2019-10-14T13:57:20+00:00"
+        },
         {
             "name": "guzzlehttp/guzzle",
             "version": "7.2.0",
