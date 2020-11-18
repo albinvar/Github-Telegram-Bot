@@ -52,9 +52,15 @@ class GitHubBot
                 $this->message .= "♻️ <b>Connection Successfull</b>\n\n";
                 break;
             case 'issues':
+	            if ($this->payload->action == "opened") {
 	            $this->message .= "⚠️ <b>New Issue</b> - <a href=\"{$this->payload->issue->url}\">{$this->payload->repository->full_name}#{$this->payload->issue->number}</a>\n\n";
 	            $this->message .= "<a href=\"{$this->payload->issue->url}\">{$this->payload->issue->title}</a> by <a href=\"{$this->payload->issue->user->url}\">@{$this->payload->issue->user->login}</a>\n\n";
 	            $this->message .= " {$this->payload->issue->body}";
+				} elseif ($this->payload->action == "closed") {
+				$this->message .= "🚫 <b>Issue Closed </b> - <a href=\"{$this->payload->issue->url}\">{$this->payload->repository->full_name}#{$this->payload->issue->number}</a>\n\n";
+	            $this->message .= "<a href=\"{$this->payload->issue->url}\">{$this->payload->issue->title}</a> by <a href=\"{$this->payload->issue->user->url}\">@{$this->payload->issue->user->login}</a>\n\n";
+	            $this->message .= " {$this->payload->issue->body}";
+				}
 	            break;
             default:
                 $this->message .= "Invalid Request";
