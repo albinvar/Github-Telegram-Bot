@@ -82,8 +82,6 @@ class GitHubBot
 	            $this->message .= "<a href=\"{$this->payload->comment->html_url}\">comment</a> by <a href=\"{$this->payload->comment->user->html_url}\">@{$this->payload->comment->user->login}</a>\n\n";
 	            $this->message .= " {$this->payload->comment->body}";
                 break;
-            default:
-                $this->message .= "Invalid Request";
         }
     }
     
