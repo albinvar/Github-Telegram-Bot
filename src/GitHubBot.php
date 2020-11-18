@@ -48,39 +48,38 @@ class GitHubBot
                 $this->message .= "\nPushed by : <b>{$this->payload->pusher->name}</b>\n";
                 break;
 			case 'ping':
-	            $count = count($this->payload->commits);
                 $this->message .= "♻️ <b>Connection Successfull</b>\n\n";
                 break;
             case 'issues':
 	            if ($this->payload->action == "opened") {
-	            $this->message .= "⚠️ <b>New Issue</b> - <a href=\"{$this->payload->issue->url}\">{$this->payload->repository->full_name}#{$this->payload->issue->number}</a>\n\n";
-	            $this->message .= "<a href=\"{$this->payload->issue->url}\">{$this->payload->issue->title}</a> by <a href=\"{$this->payload->issue->user->url}\">@{$this->payload->issue->user->login}</a>\n\n";
+	            $this->message .= "⚠️ <b>New Issue</b> - <a href=\"{$this->payload->issue->html_url}\">{$this->payload->repository->full_name}#{$this->payload->issue->number}</a>\n\n";
+	            $this->message .= "<a href=\"{$this->payload->issue->html_url}\">{$this->payload->issue->title}</a> by <a href=\"{$this->payload->issue->user->html_url}\">@{$this->payload->issue->user->login}</a>\n\n";
 	            $this->message .= " {$this->payload->issue->body}";
 				} elseif ($this->payload->action == "closed") {
-				$this->message .= "🚫 <b>Issue Closed </b> - <a href=\"{$this->payload->issue->url}\">{$this->payload->repository->full_name}#{$this->payload->issue->number}</a>\n\n";
-	            $this->message .= "<a href=\"{$this->payload->issue->url}\">{$this->payload->issue->title}</a> by <a href=\"{$this->payload->issue->user->url}\">@{$this->payload->issue->user->login}</a>\n\n";
+				$this->message .= "🚫 <b>Issue Closed </b> - <a href=\"{$this->payload->issue->html_url}\">{$this->payload->repository->full_name}#{$this->payload->issue->number}</a>\n\n";
+	            $this->message .= "<a href=\"{$this->payload->issue->html_url}\">{$this->payload->issue->title}</a> by <a href=\"{$this->payload->issue->user->html_url}\">@{$this->payload->issue->user->login}</a>\n\n";
 	            $this->message .= " {$this->payload->issue->body}";
 				}
 	            break;
 			case 'issue_comment':
                 $this->message .= "📬 <b>New comment </b> on <a href=\"{$this->payload->comment->url}\">{$this->payload->repository->full_name}#{$this->payload->issue->number}</a>\n\n";
-	            $this->message .= "<a href=\"{$this->payload->comment->html_url}\">comment</a> by <a href=\"{$this->payload->comment->user->url}\">@{$this->payload->comment->user->login}</a>\n\n";
+	            $this->message .= "<a href=\"{$this->payload->comment->html_url}\">comment</a> by <a href=\"{$this->payload->comment->user->html_url}\">@{$this->payload->comment->user->login}</a>\n\n";
 	            $this->message .= " {$this->payload->comment->body}";
                 break;
             case 'pull_request':
 	            if ($this->payload->action == "opened") {
-	            $this->message .= "👷‍♂️🛠️ <b>New Pull Request</b> - <a href=\"{$this->payload->pull_request->url}\">{$this->payload->repository->full_name}#{$this->payload->pull_request->number}</a>\n\n";
-	            $this->message .= "<a href=\"{$this->payload->pull_request->url}\">{$this->payload->pull_request->title}</a> by <a href=\"{$this->payload->pull_request->user->url}\">@{$this->payload->pull_request->user->login}</a>\n\n";
+	            $this->message .= "👷‍♂️🛠️ <b>New Pull Request</b> - <a href=\"{$this->payload->pull_request->html_url}\">{$this->payload->repository->full_name}#{$this->payload->pull_request->number}</a>\n\n";
+	            $this->message .= "<a href=\"{$this->payload->pull_request->url}\">{$this->payload->pull_request->title}</a> by <a href=\"{$this->payload->pull_request->user->html_url}\">@{$this->payload->pull_request->user->login}</a>\n\n";
 	            $this->message .= " {$this->payload->pull_request->body}";
 				} elseif ($this->payload->action == "closed") {
-				$this->message .= "✅ <b>Pull Request Merged </b> - <a href=\"{$this->payload->pull_request->url}\">{$this->payload->repository->full_name}#{$this->payload->pull_request->number}</a>\n\n";
-	            $this->message .= "<a href=\"{$this->payload->pull_request->url}\">{$this->payload->pull_request->title}</a> by <a href=\"{$this->payload->pull_request->user->html_url}\">@{$this->payload->pull_request->user->login}</a>\n\n";
+				$this->message .= "✅ <b>Pull Request Merged </b> - <a href=\"{$this->payload->pull_request->html_url}\">{$this->payload->repository->full_name}#{$this->payload->pull_request->number}</a>\n\n";
+	            $this->message .= "<a href=\"{$this->payload->pull_request->html_url}\">{$this->payload->pull_request->title}</a> by <a href=\"{$this->payload->pull_request->user->html_url}\">@{$this->payload->pull_request->user->login}</a>\n\n";
 	            $this->message .= " {$this->payload->pull_request->body}";
 				}
 	            break;
 			case 'issue_comment':
-                $this->message .= "📬 <b>New comment </b> on <a href=\"{$this->payload->comment->url}\">{$this->payload->repository->full_name}#{$this->payload->issue->number}</a>\n\n";
-	            $this->message .= "<a href=\"{$this->payload->comment->html_url}\">comment</a> by <a href=\"{$this->payload->comment->user->url}\">@{$this->payload->comment->user->login}</a>\n\n";
+                $this->message .= "📬 <b>New comment </b> on <a href=\"{$this->payload->comment->html_url}\">{$this->payload->repository->full_name}#{$this->payload->issue->number}</a>\n\n";
+	            $this->message .= "<a href=\"{$this->payload->comment->html_url}\">comment</a> by <a href=\"{$this->payload->comment->user->html_url}\">@{$this->payload->comment->user->login}</a>\n\n";
 	            $this->message .= " {$this->payload->comment->body}";
                 break;
             default:
