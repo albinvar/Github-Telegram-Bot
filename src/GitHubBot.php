@@ -16,6 +16,8 @@ class GitHubBot
     public function __construct($api, $chatId)
     {
         $this->request = Request::createFromGlobals();
+        $this->telegram = new \Telegram($api);
+        $this->result = $this->telegram->getData();
         $this->api = $api;
         $this->getChatId();
         $this->admId = $chatId;
@@ -24,8 +26,8 @@ class GitHubBot
     
     public function getChatId()
     {
-    	$data = json_decode(file_get_contents("php://input"));
-		$this->chatId = $data->message->chat->id;
+    	$this->text = $this->result['message'] ['text'];
+		$this->chatId = $this->result['message'] ['chat']['id'];
     }
     
     public function getPayload()
@@ -97,7 +99,7 @@ class GitHubBot
         $this->getPayload();
         $text = $this->charReplace();
         $method_url = 'https://api.telegram.org/bot'.$this->api.'/sendMessage';
-        $url = $method_url.'?chat_id='.$this->admId.'&disable_web_page_preview=1&parse_mode=html&text='.$text;
+        $url = $method_url.'?chat_id='.$this->chatId.'&disable_web_page_preview=1&parse_mode=html&text='.$text;
         $client = new Client();
         $response = $client->request('GET', $url);
         if($response->getStatusCode() == 200) {
