@@ -24,7 +24,11 @@ class GitHubBot
         $this->admId = $chatId;
         $this->sendMessage();
         } else {
+        if ($this->chatId == $chatId) {
         $this->sendTelegram($this->text);
+        } else {
+        $this->accessDenied($this->text);
+	        }
         }
     }
     
@@ -152,6 +156,13 @@ Select a command :";
 		$this->telegram->sendMessage($content);
 		
 		}
+    }
+    
+    public function accessDenied()
+    {
+    	$reply = "🔒 Access Denied to Bot 🚫";
+		$content = array('chat_id' => $this->chatId, 'text' => $reply);
+		$this->telegram->sendMessage($content);
     }
 
 }
