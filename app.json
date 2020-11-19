@@ -8,6 +8,11 @@
          "github bot"
       ],   
    "repository": "https://github.com/albinvar/Github-Telegram-Bot",
+   "buildpacks": [
+    {
+      "url": "heroku/php"
+    }
+  ],
    "env": {
       "API_TOKEN": {
          "description": "Your bot token. Get one from @BotFather",
@@ -23,7 +28,7 @@
          "description": "The Heroku App URL :-  https://<appname>.herokuapp.com",
          "required": true,
          "value": ""
-      },
+      }
       
    }
 }
