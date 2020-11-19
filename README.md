@@ -36,7 +36,12 @@ Github Telegram Bot is a php bot for notifying Events from your github repositor
 10. Now run this command in your terminal `git push heroku master`, if this gives an error try this `git push -f heroku master`
 
 11. All done now it will take time to complete, after that you can visit your domain shown in terminal.
-    
+
+## How to setup on Heroku 
+For starters click on this button 
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/albinvar/Github-Telegram-Bot.git) 
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
