@@ -20,8 +20,12 @@ class GitHubBot
         $this->result = $this->telegram->getData();
         $this->api = $api;
         $this->getChatId();
+        if (empty($this->chatId)) {
         $this->admId = $chatId;
         $this->sendMessage();
+        } else {
+        $this->sendTelegram($this->text);
+        }
     }
     
     public function getChatId()
@@ -106,6 +110,32 @@ class GitHubBot
             return true;
         }
         return false;
+    }
+    
+    public function sendTelegram($text)
+    {
+    	switch($text) {
+            case '/start':
+        $reply = "Start Message";
+		$content = array('chat_id' => $this->chatId, 'text' => $reply);
+		$this->telegram->sendMessage($content);
+			case '/help':
+		$reply = "Help Message";
+		$content = array('chat_id' => $this->chatId, 'text' => $reply);
+		$this->telegram->sendMessage($content);
+			case '/id':
+		$content = array('chat_id' => $this->chatId, 'text' => $this->chatId);
+		$this->telegram->sendMessage($content);
+			case '/ping':
+		$reply = "Pong...!!!!";
+		$content = array('chat_id' => $this->chatId, 'text' => $reply);
+		$this->telegram->sendMessage($content);
+		
+		detault :
+		$reply = "Invalid Request";
+		$content = array('chat_id' => $this->chatId, 'text' => $reply);
+		$this->telegram->sendMessage($content);
+		}
     }
 
 }
