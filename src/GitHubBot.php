@@ -20,11 +20,12 @@ class GitHubBot
         $this->result = $this->telegram->getData();
         $this->api = $api;
         $this->getChatId();
+        $admins = explode(" ", $chatId);
         if (empty($this->chatId)) {
         $this->admId = $chatId;
         $this->sendMessage();
         } else {
-        if ($this->chatId == $chatId) {
+        if (in_array($this->chatId, $admins)) {
         $this->sendTelegram($this->text);
         } else {
         $this->accessDenied($this->text);
