@@ -103,7 +103,7 @@ class GitHubBot
         $this->getPayload();
         $text = $this->charReplace();
         $method_url = 'https://api.telegram.org/bot'.$this->api.'/sendMessage';
-        $url = $method_url.'?chat_id='.$this->chatId.'&disable_web_page_preview=1&parse_mode=html&text='.$text;
+        $url = $method_url.'?chat_id='.$this->admId.'&disable_web_page_preview=1&parse_mode=html&text='.$text;
         $client = new Client();
         $response = $client->request('GET', $url);
         if($response->getStatusCode() == 200) {
@@ -135,11 +135,11 @@ class GitHubBot
 		$this->telegram->sendMessage($content);
 		break;
 		
-		detault :
+		default:
 		$reply = "Invalid Request";
 		$content = array('chat_id' => $this->chatId, 'text' => $reply);
 		$this->telegram->sendMessage($content);
-		break;
+		
 		}
     }
 
