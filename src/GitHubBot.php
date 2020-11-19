@@ -116,22 +116,33 @@ class GitHubBot
     {
     	switch($text) {
             case '/start':
-        $reply = "Start Message";
-		$content = array('chat_id' => $this->chatId, 'text' => $reply);
+        $reply = "<b>🙋🏻 Github Notify Bot 🤓</b>
+        
+I can send you notifications from your github Repository instantly to your Telegram. use /help for more information about me.
+
+		";
+		$content = array('chat_id' => $this->chatId, 'text' => $reply, 'disable_web_page_preview' => true, 'parse_mode' => "HTML");
 		$this->telegram->sendMessage($content);
 		break;
 			case '/help':
-		$reply = "Help Message";
-		$content = array('chat_id' => $this->chatId, 'text' => $reply);
+		$reply = "<b>Available Commands </b>
+
+/id - To get chat id
+/host - To get Host Address
+/help - To show this Message
+
+Select a command :";
+		$content = array('chat_id' => $this->chatId, 'text' => $reply, 'disable_web_page_preview' => true, 'parse_mode' => "HTML");
 		$this->telegram->sendMessage($content);
 		break;
 			case '/id':
-		$content = array('chat_id' => $this->chatId, 'text' => $this->chatId);
+		$reply = "Your id is <code>{$this->chatId}</code>";
+		$content = array('chat_id' => $this->chatId, 'text' => $reply, 'disable_web_page_preview' => true, 'parse_mode' => "HTML");
 		$this->telegram->sendMessage($content);
 		break;
-			case '/ping':
-		$reply = "Pong...!!!!";
-		$content = array('chat_id' => $this->chatId, 'text' => $reply);
+			case '/host':
+		$reply = "Server Address : <a href=\"{$_SERVER['REMOTE_ADDR']}\">{$_SERVER['REMOTE_ADDR']}</a>";
+		$content = array('chat_id' => $this->chatId, 'text' => $reply,  'disable_web_page_preview' => true, 'parse_mode' => "HTML");
 		$this->telegram->sendMessage($content);
 		break;
 		
