@@ -22,8 +22,10 @@ class GitHubBot
         $this->getChatId();
         $admins = explode(" ", $chatId);
         if (empty($this->chatId)) {
-        $this->admId = $chatId;
-        $this->sendMessage();
+        $this->admId = $admins;
+        foreach ($this->admId as $admin) {
+        $this->sendMessage($admin);
+        }
         } else {
         if (in_array($this->chatId, $admins)) {
         $this->sendTelegram($this->text);
@@ -103,12 +105,12 @@ class GitHubBot
 		return str_replace($this->chars, $this->ascii, urlencode($this->message));
     }
 
-    public function sendMessage()
+    public function sendMessage($admin)
     {
         $this->getPayload();
         $text = $this->charReplace();
         $method_url = 'https://api.telegram.org/bot'.$this->api.'/sendMessage';
-        $url = $method_url.'?chat_id='.$this->admId.'&disable_web_page_preview=1&parse_mode=html&text='.$text;
+        $url = $method_url.'?chat_id='.$admin.'&disable_web_page_preview=1&parse_mode=html&text='.$text;
         $client = new Client();
         $response = $client->request('GET', $url);
         if($response->getStatusCode() == 200) {
