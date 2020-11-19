@@ -58,14 +58,36 @@ Easily deploy using the button below
 
 1. Install and Configure ngrok on your localmachine.
 
-2. Start Port-forwarding using the command `ngrok http 7070`
+2. Start Port-forwarding using the command `ngrok http 8080`
 
 3. Set the link with https as webhook using setWebhook.php 
 
-4. You are good to go. 
+4. You are good to go...
+
+## Set Webhook 
+
+1. Open `http://YOUR_DOMAIN.COM/setWebhook.php` on your localmachine.
+
+2. Set webhook by passing the ngrok link (https) through get method `http://YOUR_DOMAIN.COM/setWebhook.php?link=YOUR_NGROK_LINK`
+
+3. If you get a message saying "webhook set successfully". You are good to go....
+
+## Set webhook on Github
+
+1. Choose a repository on Github which you want to receive notifications. 
+
+2. Direct to repo-settings->webhooks->add webhook
+
+3. Set the payload url ngrok/website link.
+
+4. Select `application/x-www-form-urlencoded` and select `All Events`
+
+5. Hit Enter and you will get all notifications from your Telegram bot
+
+```Note that : Your ngrok link will expire after sometimes. Using webhosting/vps is suggested```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-[MIT License](https://github.com/albinvar/Github-Telegram-Bot/blob/main/LICENSE)
+This project is certified using [MIT License](https://github.com/albinvar/Github-Telegram-Bot/blob/main/LICENSE)
