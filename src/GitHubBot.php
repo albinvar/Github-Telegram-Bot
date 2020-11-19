@@ -119,22 +119,27 @@ class GitHubBot
         $reply = "Start Message";
 		$content = array('chat_id' => $this->chatId, 'text' => $reply);
 		$this->telegram->sendMessage($content);
+		break;
 			case '/help':
 		$reply = "Help Message";
 		$content = array('chat_id' => $this->chatId, 'text' => $reply);
 		$this->telegram->sendMessage($content);
+		break;
 			case '/id':
 		$content = array('chat_id' => $this->chatId, 'text' => $this->chatId);
 		$this->telegram->sendMessage($content);
+		break;
 			case '/ping':
 		$reply = "Pong...!!!!";
 		$content = array('chat_id' => $this->chatId, 'text' => $reply);
 		$this->telegram->sendMessage($content);
+		break;
 		
 		detault :
 		$reply = "Invalid Request";
 		$content = array('chat_id' => $this->chatId, 'text' => $reply);
 		$this->telegram->sendMessage($content);
+		break;
 		}
     }
 
