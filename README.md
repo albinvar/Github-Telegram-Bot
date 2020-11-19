@@ -37,15 +37,35 @@ Github Telegram Bot is a php bot for notifying Events from your github repositor
 
 11. All done now it will take time to complete, after that you can visit your domain shown in terminal.
 
-## How to setup on Heroku 
-For starters click on this button 
+## Installation on Heroku (Easy way)
+Easily deploy using the button below
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/albinvar/Github-Telegram-Bot.git) 
 
+## Installation (VPS)
+
+1. Clone the repository using git. `git clone https://github.com/albinvar/Github-Telegram-Bot.git`
+
+2. Install all pacakges using composer. `composer install`
+
+3. Now change your directory using `cd Github-Telegram-Bot`
+
+4. Start a localhost using `php -S localhost:8080` 
+
+5. You can setup your port-forwarding method. (Services like ngrok, serveo.net)
+
+## Setup Port-forwarding
+
+1. Install and Configure ngrok on your localmachine.
+
+2. Start Port-forwarding using the command `ngrok http 7070`
+
+3. Set the link with https as webhook using setWebhook.php 
+
+4. You are good to go. 
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
 
 ## License
 [MIT License](https://github.com/albinvar/Github-Telegram-Bot/blob/main/LICENSE)
