@@ -18,7 +18,12 @@
          "description": "A space separated list of user IDs who you want to assign as admin users.",
          "required": true,
          "value": ""
-      }
+      },
+      "URL": {
+         "description": "The Heroku App URL :-  https://<appname>.herokuapp.com",
+         "required": true,
+         "value": ""
+      },
       
    }
 }
