@@ -40,7 +40,7 @@ Github Telegram Bot is a php bot for notifying Events from your github repositor
 ## Installation on Heroku (Easy way)
 Easily deploy using the button below
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/albinvar/Github-Telegram-Bot.git) 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Installation (VPS)
 

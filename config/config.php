@@ -15,7 +15,7 @@ date_default_timezone_set($_ENV['TIMEZONE']);
 if (empty(getenv('API_TOKEN')){
 $api = $_ENV['BOT_API'];
 } else {
-$api = getenv('BOT_API');
+$api = getenv('BOT_TOKEN');
 }
 
 if (empty(getenv('ADMINS')) {
