@@ -6,7 +6,7 @@ require __DIR__.'/functions.php';
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-date_default_timezone_set($_ENV['TIMEZONE']);
+date_default_timezone_set('Asia/Kolkata');
 
 if (empty(getenv('API_TOKEN'))){
 $api = "YOUR_API_TOKEN";
