@@ -150,7 +150,7 @@ class GitHubBot
     [$this->telegram->buildInlineKeyBoardButton("💠 Source Code", $url="https://github.com/albinvar/Github-Telegram-Bot")]
      ];
 	$keyb = $this->telegram->buildInlineKeyBoard($option);
-		$reply = "<b>Available Commands </b>\n\n/id - To get chat id\n/host - To get Host Address\n/help - To show this Message\n\nSelect a command :";
+		$reply = "<b>Available Commands </b>\n\n/id - To get chat id\n/host - To get Host Address\n/help - To show this Message\n/usage - How to use me\n\nSelect a command :";
 		$content = array('chat_id' => $this->chatId, 'reply_markup' => $keyb, 'text' => $reply, 'disable_web_page_preview' => true, 'parse_mode' => "HTML");
 		$this->telegram->sendMessage($content);
 		break;
@@ -164,7 +164,11 @@ class GitHubBot
 		$content = array('chat_id' => $this->chatId, 'text' => $reply,  'disable_web_page_preview' => true, 'parse_mode' => "HTML");
 		$this->telegram->sendMessage($content);
 		break;
-		
+		case '/usage':
+		$reply = "<b>Adding webhook (Website Address) to your github repository</b>\n\n 1) Redirect to <i>Repository Settings->Set Webhook->Add Webhook</i> \n 2) Set your payload url (heroku web address)\n 3) Set content type to \"<code>application/x-www-form-urlencoded</code>\"\n\n <b>Thats it. you will receive all notifications through me 🤗</b>";
+		$content = array('chat_id' => $this->chatId, 'text' => $reply, 'disable_web_page_preview' => true, 'parse_mode' => "HTML");
+		$this->telegram->sendMessage($content);
+		break;
 		default:
 		$reply = "🤨 Invalid Request";
 		$content = array('chat_id' => $this->chatId, 'text' => $reply);
