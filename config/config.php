@@ -8,13 +8,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 date_default_timezone_set($_ENV['TIMEZONE']);
 
-if (empty(getenv('API_TOKEN')){
+if (empty(getenv('API_TOKEN'))){
 $api = "YOUR_API_TOKEN";
 } else {
 $api = getenv('BOT_TOKEN');
 }
 
-if (empty(getenv('ADMINS')) {
+if (empty(getenv('ADMINS'))) {
 $admin = "ADMIN_IDS_SEPERATED_BY_COMMA";
 } else {
 $admin = getenv('ADMINS');
