@@ -133,14 +133,13 @@ I can send you notifications from your github Repository instantly to your Teleg
 		$this->telegram->sendPhoto($content);
 		break;
 			case '/help':
-		$reply = "<b>Available Commands </b>
-
-/id - To get chat id
-/host - To get Host Address
-/help - To show this Message
-
-Select a command :";
-		$content = array('chat_id' => $this->chatId, 'text' => $reply, 'disable_web_page_preview' => true, 'parse_mode' => "HTML");
+		$option = [ 
+    [$this->telegram->buildInlineKeyBoardButton("About Bot", $url="http://link1.com"), $this->telegram->buildInlineKeyBoardButton("Source Code", $url="http://link1.com")],
+    [$this->telegram->buildInlineKeyBoardButton("Contact Dev", $url="http://link1.com")]
+     ];
+	$keyb = $this->telegram->buildInlineKeyBoard($option);
+		$reply = "<b>Available Commands </b>\n\n/id - To get chat id\n/host - To get Host Address\n/help - To show this Message\n\nSelect a command :";
+		$content = array('chat_id' => $this->chatId, 'reply_markup' => $keyb, 'text' => $reply, 'disable_web_page_preview' => true, 'parse_mode' => "HTML");
 		$this->telegram->sendMessage($content);
 		break;
 			case '/id':
