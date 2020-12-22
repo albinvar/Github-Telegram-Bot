@@ -42,7 +42,8 @@ class GitHubBot
     	$this->text = $this->result['message'] ['text'];
 		$this->chatId = $this->result['message'] ['chat']['id'];
 		if(!is_null($this->telegram->Callback_ChatID())){
-		$this->callbackId = $this->telegram->Callback_ChatID();
+		$this->callbackChatId = $this->telegram->Callback_ChatID();
+		$this->callbackId = $this->telegram->Callback_ID();
 		$callback = $this->telegram->Callback_Data();
 		$this->sendCallbackResponse($callback);
 		}
@@ -177,14 +178,14 @@ I can send you notifications from your github Repository instantly to your Teleg
     {
     	switch($callback) {
 	    	case 'about':
-            $reply = "🔒 Access Denied to Bot 🚫";
-		$content = array('chat_id' => $this->callbackId, 'text' => $reply);
-		$this->telegram->sendMessage($content);
+            $reply = "Thanks for using our bot. \n\n The bot is designed to send notifications based on GitHub events from your github repo instantly to your Telegram account. \n\n The bot was developed by @albinvar";
+		$content = array('callback_query_id' => $this->callbackId, 'text' => $reply, 'show_alert' => true);
+		$this->telegram->answerCallbackQuery($content);
         break;
         
         case 'contact':
         $reply = "🔒 Access Denied to Bot 🚫";
-		$content = array('chat_id' => $this->callbackId, 'text' => $reply);
+		$content = array('chat_id' => $this->callbackChatId, 'text' => $reply);
 		$this->telegram->sendMessage($content);
         break;
          }  
