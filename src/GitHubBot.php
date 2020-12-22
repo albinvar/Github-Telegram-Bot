@@ -21,6 +21,8 @@ class GitHubBot
         $this->api = $api;
         $this->getChatId();
         $admins = explode(" ", $chatId);
+        
+        
         if (empty($this->chatId)) {
         $this->admId = $admins;
         foreach ($this->admId as $admin) {
@@ -39,12 +41,21 @@ class GitHubBot
     {
     	$this->text = $this->result['message'] ['text'];
 		$this->chatId = $this->result['message'] ['chat']['id'];
+		if(!is_null($this->telegram->Callback_ChatID())){
+		$this->callbackId = $this->telegram->Callback_ChatID();
+		$callback = $this->telegram->Callback_Data();
+		$this->sendCallbackResponse($callback);
+		}
     }
     
     public function getPayload()
     {
         $this->payload = json_decode($this->request->request->get('payload'));
+        if (is_null($this->request->server->get('HTTP_X_GITHUB_EVENT'))){
+        	die;
+        } else {
         $this->setMessage($this->request->server->get('HTTP_X_GITHUB_EVENT'));
+        }
     }
 
     private function setMessage($typeEvent)
@@ -134,8 +145,8 @@ I can send you notifications from your github Repository instantly to your Teleg
 		break;
 			case '/help':
 		$option = [ 
-    [$this->telegram->buildInlineKeyBoardButton("About Bot", $url="http://link1.com"), $this->telegram->buildInlineKeyBoardButton("Source Code", $url="http://link1.com")],
-    [$this->telegram->buildInlineKeyBoardButton("Contact Dev", $url="http://link1.com")]
+    [$this->telegram->buildInlineKeyBoardButton($text="About","","about",""), $this->telegram->buildInlineKeyBoardButton($text="Contact","","contact","")],
+    [$this->telegram->buildInlineKeyBoardButton("Source Code", $url="http://link1.com")]
      ];
 	$keyb = $this->telegram->buildInlineKeyBoard($option);
 		$reply = "<b>Available Commands </b>\n\n/id - To get chat id\n/host - To get Host Address\n/help - To show this Message\n\nSelect a command :";
@@ -159,6 +170,24 @@ I can send you notifications from your github Repository instantly to your Teleg
 		$this->telegram->sendMessage($content);
 		
 		}
+		
+    }
+    
+    private function sendCallbackResponse($callback=null)
+    {
+    	switch($callback) {
+	    	case 'about':
+            $reply = "🔒 Access Denied to Bot 🚫";
+		$content = array('chat_id' => $this->callbackId, 'text' => $reply);
+		$this->telegram->sendMessage($content);
+        break;
+        
+        case 'contact':
+        $reply = "🔒 Access Denied to Bot 🚫";
+		$content = array('chat_id' => $this->callbackId, 'text' => $reply);
+		$this->telegram->sendMessage($content);
+        break;
+         }  
     }
     
     public function accessDenied()
