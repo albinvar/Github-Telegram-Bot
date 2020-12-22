@@ -1,29 +1,30 @@
 {
-      "name": "Github Telegram Bot",
-      "description": "Telegram bot designed to deliver notifications from your Github Repository built using php",
-      "keywords": [
-         "telegram",
-         "php bot",
-         "github",
-         "github bot"
-      ],   
-   "repository": "https://github.com/albinvar/Github-Telegram-Bot",
-   "env": {
-      "API_TOKEN": {
-         "description": "Your bot token. Get one from @BotFather",
-         "required": true,
-         "value": ""
-      },
-      "ADMINS": {
-         "description": "A space separated list of user IDs who you want to assign as admin users.",
-         "required": true,
-         "value": ""
-      },
-      "URL": {
-         "description": "The Heroku App URL :-  https://<appname>.herokuapp.com",
-         "required": true,
-         "value": ""
-      },
-      
-   }
+    "name": "Github Telegram Bot",
+    "description": "Telegram bot designed to deliver notifications from your Github Repository built using php",
+    "keywords": [
+        "productivity",
+        "share",
+        "files"
+    ],
+    "website": "https://github-telegram-bot.surge.sh",
+    "repository": "https://github.com/albinvar/Github-Telegram-Bot",
+    "success_url": "/",
+    "env": {
+        "BOT_TOKEN": {
+            "description": "Your Telegram Bot Token, from @BotFather"
+        },
+        "ADMINS": {
+            "description": "A space separated list of user IDs who you want to assign as admin users."
+        },
+        "APP_URL": {
+            "description": "The Heroku App URL :-  https://<appname>.herokuapp.com"
+        }
+    },
+    "formation": {
+        "web": {
+            "quantity": 1,
+            "size": "free"
+        }
+    },
+    "image": "heroku/php"
 }
