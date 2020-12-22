@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 date_default_timezone_set('Asia/Kolkata');
 
-if (empty(getenv('API_TOKEN'))){
+if (empty(getenv('BOT_TOKEN'))){
 $api = "YOUR_API_TOKEN";
 } else {
 $api = getenv('BOT_TOKEN');
