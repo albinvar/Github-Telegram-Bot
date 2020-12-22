@@ -123,13 +123,14 @@ class GitHubBot
     {
     	switch($text) {
             case '/start':
+        $img = curl_file_create('img/github.jpeg','image/png'); 
         $reply = "<b>🙋🏻 Github Notify Bot 🤓</b>
         
 I can send you notifications from your github Repository instantly to your Telegram. use /help for more information about me.
 
 		";
-		$content = array('chat_id' => $this->chatId, 'text' => $reply, 'disable_web_page_preview' => true, 'parse_mode' => "HTML");
-		$this->telegram->sendMessage($content);
+		$content = array('chat_id' => $this->chatId,'photo' => $img, 'caption' => $reply, 'disable_web_page_preview' => true, 'parse_mode' => "HTML");
+		$this->telegram->sendPhoto($content);
 		break;
 			case '/help':
 		$reply = "<b>Available Commands </b>
