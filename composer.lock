@@ -4,23 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a734916b0c6dcbdbcf4b3c27be50d1cc",
+    "content-hash": "4c334ef63535758b654ef92dce12a56b",
     "packages": [
         {
             "name": "eleirbag89/telegrambotphp",
-            "version": "1.3.10",
+            "version": "1.3.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Eleirbag89/TelegramBotPHP.git",
-                "reference": "aa9ba838a51e34db41f0a827e9ec4b20023ffa48"
+                "reference": "d5464bc7356f6031991e636b6b1b2402cbae88ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Eleirbag89/TelegramBotPHP/zipball/aa9ba838a51e34db41f0a827e9ec4b20023ffa48",
-                "reference": "aa9ba838a51e34db41f0a827e9ec4b20023ffa48",
+                "url": "https://api.github.com/repos/Eleirbag89/TelegramBotPHP/zipball/d5464bc7356f6031991e636b6b1b2402cbae88ea",
+                "reference": "d5464bc7356f6031991e636b6b1b2402cbae88ea",
                 "shasum": ""
             },
             "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
                 "php": ">=5.0"
             },
             "type": "library",
@@ -43,9 +45,23 @@
             "description": "A very simple PHP Telegram Bot API",
             "support": {
                 "issues": "https://github.com/Eleirbag89/TelegramBotPHP/issues",
-                "source": "https://github.com/Eleirbag89/TelegramBotPHP/tree/master"
+                "source": "https://github.com/Eleirbag89/TelegramBotPHP/tree/1.3.11"
             },
-            "time": "2019-10-14T13:57:20+00:00"
+            "funding": [
+                {
+                    "url": "https://flattr.com/@Eleirbag89",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://paypal.me/eleirbag89",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://liberapay.com/eleirbag89",
+                    "type": "liberapay"
+                }
+            ],
+            "time": "2020-06-24T16:20:03+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -497,16 +513,16 @@
         },
         {
             "name": "symfony/dotenv",
-            "version": "v5.1.8",
+            "version": "v5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dotenv.git",
-                "reference": "29ac2a3e538da61780a769827c716738ce7accbb"
+                "reference": "204a9dc6f70a13d9d24ebbf2c5ce51be235f3d7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dotenv/zipball/29ac2a3e538da61780a769827c716738ce7accbb",
-                "reference": "29ac2a3e538da61780a769827c716738ce7accbb",
+                "url": "https://api.github.com/repos/symfony/dotenv/zipball/204a9dc6f70a13d9d24ebbf2c5ce51be235f3d7b",
+                "reference": "204a9dc6f70a13d9d24ebbf2c5ce51be235f3d7b",
                 "shasum": ""
             },
             "require": {
@@ -547,7 +563,7 @@
                 "environment"
             ],
             "support": {
-                "source": "https://github.com/symfony/dotenv/tree/v5.1.8"
+                "source": "https://github.com/symfony/dotenv/tree/v5.2.1"
             },
             "funding": [
                 {
@@ -563,20 +579,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-24T12:01:57+00:00"
+            "time": "2020-12-08T17:02:38+00:00"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v5.1.8",
+            "version": "v5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "a2860ec970404b0233ab1e59e0568d3277d32b6f"
+                "reference": "a1f6218b29897ab52acba58cfa905b83625bef8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/a2860ec970404b0233ab1e59e0568d3277d32b6f",
-                "reference": "a2860ec970404b0233ab1e59e0568d3277d32b6f",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/a1f6218b29897ab52acba58cfa905b83625bef8d",
+                "reference": "a1f6218b29897ab52acba58cfa905b83625bef8d",
                 "shasum": ""
             },
             "require": {
@@ -620,7 +636,7 @@
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-foundation/tree/v5.1.8"
+                "source": "https://github.com/symfony/http-foundation/tree/v5.2.1"
             },
             "funding": [
                 {
@@ -636,7 +652,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-24T12:01:57+00:00"
+            "time": "2020-12-18T10:00:10+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -809,7 +825,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "ext-json": "^7.4"
+        "ext-json": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
