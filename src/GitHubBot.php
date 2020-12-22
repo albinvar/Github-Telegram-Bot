@@ -21,9 +21,7 @@ class GitHubBot
         $this->api = $api;
         $this->getChatId();
         $admins = explode(" ", $chatId);
-        
-        
-        if (empty($this->chatId)) {
+         if (empty($this->chatId)) {
         $this->admId = $admins;
         foreach ($this->admId as $admin) {
         $this->sendMessage($admin);
@@ -53,6 +51,7 @@ class GitHubBot
     {
         $this->payload = json_decode($this->request->request->get('payload'));
         if (is_null($this->request->server->get('HTTP_X_GITHUB_EVENT'))){
+        	echo "invalid request";
         	die;
         } else {
         $this->setMessage($this->request->server->get('HTTP_X_GITHUB_EVENT'));
@@ -146,8 +145,8 @@ I can send you notifications from your github Repository instantly to your Teleg
 		break;
 			case '/help':
 		$option = [ 
-    [$this->telegram->buildInlineKeyBoardButton($text="About","","about",""), $this->telegram->buildInlineKeyBoardButton($text="Contact","","contact","")],
-    [$this->telegram->buildInlineKeyBoardButton("Source Code", $url="http://link1.com")]
+    [$this->telegram->buildInlineKeyBoardButton($text="📰 About","","about",""), $this->telegram->buildInlineKeyBoardButton("📞 Contact", $url="https://t.me/albinvar")],
+    [$this->telegram->buildInlineKeyBoardButton("💠 Source Code", $url="https://github.com/albinvar/Github-Telegram-Bot")]
      ];
 	$keyb = $this->telegram->buildInlineKeyBoard($option);
 		$reply = "<b>Available Commands </b>\n\n/id - To get chat id\n/host - To get Host Address\n/help - To show this Message\n\nSelect a command :";
@@ -178,16 +177,11 @@ I can send you notifications from your github Repository instantly to your Teleg
     {
     	switch($callback) {
 	    	case 'about':
-            $reply = "Thanks for using our bot. \n\n The bot is designed to send notifications based on GitHub events from your github repo instantly to your Telegram account. \n\n The bot was developed by @albinvar";
+            $reply = "Thanks for using our bot. \n\n The bot is designed to send notifications based on GitHub events from your github repo instantly to your Telegram account. \n\n Developed by @albinvar";
 		$content = array('callback_query_id' => $this->callbackId, 'text' => $reply, 'show_alert' => true);
 		$this->telegram->answerCallbackQuery($content);
         break;
         
-        case 'contact':
-        $reply = "🔒 Access Denied to Bot 🚫";
-		$content = array('chat_id' => $this->callbackChatId, 'text' => $reply);
-		$this->telegram->sendMessage($content);
-        break;
          }  
     }
     
