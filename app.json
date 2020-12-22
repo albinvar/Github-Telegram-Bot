@@ -8,7 +8,7 @@
     ],
     "website": "https://github-telegram-bot.surge.sh",
     "repository": "https://github.com/albinvar/Github-Telegram-Bot",
-    "success_url": "/",
+    "success_url": "/setWebhook.php",
     "env": {
         "BOT_TOKEN": {
             "description": "Your Telegram Bot Token, from @BotFather"
