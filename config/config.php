@@ -15,7 +15,7 @@ $api = getenv('BOT_TOKEN');
 }
 
 if (empty(getenv('ADMINS'))) {
-$admin = "ADMIN_IDS_SEPERATED_BY_COMMA";
+$admin = "ADMIN_IDS_SEPERATED_BY_SPACE";
 } else {
 $admin = getenv('ADMINS');
 }

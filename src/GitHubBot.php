@@ -10,8 +10,12 @@ class GitHubBot
     private $api;
     private $chatId;
     private $payload;
+    private $first;
     private $message;
     private $request;
+    private $callbackId;
+    private $callbackChatId;
+    
 
     public function __construct($api, $chatId)
     {
@@ -39,6 +43,7 @@ class GitHubBot
     {
     	$this->text = $this->result['message'] ['text'];
 		$this->chatId = $this->result['message'] ['chat']['id'];
+		$this->first = $this->telegram->FirstName();
 		if(!is_null($this->telegram->Callback_ChatID())){
 		$this->callbackChatId = $this->telegram->Callback_ChatID();
 		$this->callbackId = $this->telegram->Callback_ID();
@@ -135,11 +140,7 @@ class GitHubBot
     	switch($text) {
             case '/start':
         $img = curl_file_create('img/github.jpeg','image/png'); 
-        $reply = "<b>🙋🏻 Github Notify Bot 🤓</b>
-        
-I can send you notifications from your github Repository instantly to your Telegram. use /help for more information about me.
-
-		";
+        $reply = "<b>🙋🏻 Github Notify Bot 🤓</b>\n\nHey <b>{$this->first}</b>,\n\nI can send you notifications from your github Repository instantly to your Telegram. use /help for more information about me";
 		$content = array('chat_id' => $this->chatId,'photo' => $img, 'caption' => $reply, 'disable_web_page_preview' => true, 'parse_mode' => "HTML");
 		$this->telegram->sendPhoto($content);
 		break;
@@ -165,7 +166,7 @@ I can send you notifications from your github Repository instantly to your Teleg
 		break;
 		
 		default:
-		$reply = "Invalid Request";
+		$reply = "🤨 Invalid Request";
 		$content = array('chat_id' => $this->chatId, 'text' => $reply);
 		$this->telegram->sendMessage($content);
 		
@@ -187,8 +188,8 @@ I can send you notifications from your github Repository instantly to your Teleg
     
     public function accessDenied()
     {
-    	$reply = "🔒 Access Denied to Bot 🚫";
-		$content = array('chat_id' => $this->chatId, 'text' => $reply);
+    	$reply = "🔒 <b>Access Denied to Bot </b>🚫\n\nPlease contact adminstrator for further information, Thank You..";
+		$content = array('chat_id' => $this->chatId, 'text' => $reply, 'disable_web_page_preview' => true, 'parse_mode' => "HTML");
 		$this->telegram->sendMessage($content);
     }
 
