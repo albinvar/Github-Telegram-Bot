@@ -1,6 +1,24 @@
-# Github Telegram Bot
+<h1 align="center"> Github Telegram Bot</h1> <br>
+<p align="center">
+  <a href="https://test.com">
+    <img src="https://i.ibb.co/SxLvgjs/Bot-banner.png" alt="logo" width="190" border="0">
+  </a>
+</p>
 
 Github Telegram Bot is a php bot for notifying Events from your github repository.
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Installation](#installation)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Introduction
+
+This is the introduction section and a brief description is provided within this section.
 
 ### Create a New Bot
 1. Add [@BotFather](https://telegram.me/botfather) to start conversation.
@@ -42,7 +60,7 @@ Easily deploy using the button below
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-## Installation (VPS)
+## Installation (VPS/Localhost)
 
 1. Clone the repository using git. `git clone https://github.com/albinvar/Github-Telegram-Bot.git`
 
