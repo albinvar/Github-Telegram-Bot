@@ -1,7 +1,7 @@
 <?php
 	require __DIR__.'/config/config.php';
 	
-	$link= "https://{$_SERVER['SERVER_NAME']}{$_SERVER['REQUEST_URI']}";
+	$link= "https://{$_SERVER['SERVER_NAME']}";
 	$botApi = $api;
 	
 	
