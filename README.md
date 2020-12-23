@@ -84,9 +84,9 @@ Easily deploy using the button below
 
 ## Set Webhook 
 
-1. Open `http://YOUR_DOMAIN.COM/setWebhook.php` on your localmachine.
+1. Open `http://YOUR_DOMAIN.COM/setWebhook.php` on your server/localhost.
 
-2. Set webhook by passing the ngrok link (https) through get method `http://YOUR_DOMAIN.COM/setWebhook.php?link=YOUR_NGROK_LINK`
+2. It will set your webhook based on the current server address for receiving calls from Telegram API. 
 
 3. If you get a message saying "webhook set successfully". You are good to go....
 
