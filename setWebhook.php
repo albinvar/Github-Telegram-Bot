@@ -1,8 +1,8 @@
 <?php
 	require __DIR__.'/config/config.php';
 	
-	$link= "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-	$botApi = getenv('API_TOKEN');
+	$link= "https://{$_SERVER['SERVER_NAME']}{$_SERVER['REQUEST_URI']}";
+	$botApi = $api;
 	
 	
     $method_url = 'https://api.telegram.org/bot' . $botApi . '/setWebhook';
