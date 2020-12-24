@@ -3,9 +3,6 @@
 require __DIR__.'/../vendor/autoload.php';
 require __DIR__.'/functions.php';
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-
 date_default_timezone_set('Asia/Kolkata');
 
 if (empty(getenv('BOT_TOKEN'))){
