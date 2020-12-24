@@ -34,7 +34,7 @@ class GitHubBot
             if (in_array($this->chatId, $admins)) {
                 $this->sendTelegram($this->text);
             } else {
-                $this->accessDenied($this->text);
+                $this->accessDenied();
             }
         }
     }
