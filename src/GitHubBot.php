@@ -14,7 +14,6 @@ class GitHubBot
     private $message;
     private $request;
     private $callbackId;
-    private $callbackChatId;
     private $text;
     private $telegram;
     private $result;
@@ -49,7 +48,6 @@ class GitHubBot
         $this->chatId = $this->result['message'] ['chat']['id'];
         $this->first = $this->telegram->FirstName();
         if (!is_null($this->telegram->Callback_ChatID())) {
-            $this->callbackChatId = $this->telegram->Callback_ChatID();
             $this->callbackId = $this->telegram->Callback_ID();
             $callback = $this->telegram->Callback_Data();
             $this->sendCallbackResponse($callback);
