@@ -118,9 +118,7 @@ class GitHubBot
 
     public function charReplace()
     {
-        $this->chars = ["\n"];
-        $this->ascii = ["%0A"];
-        return str_replace($this->chars, $this->ascii, urlencode($this->message));
+        return str_replace(["\n"], ['%0A'], urlencode($this->message));
     }
 
     public function sendMessage($admin)
