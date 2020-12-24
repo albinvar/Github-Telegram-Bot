@@ -92,11 +92,6 @@ class GitHubBot
                     $this->message .= " {$this->payload->issue->body}";
                 }
                 break;
-            case 'issue_comment':
-                $this->message .= "📬 <b>New comment </b> on <a href=\"{$this->payload->comment->url}\">{$this->payload->repository->full_name}#{$this->payload->issue->number}</a>\n\n";
-                $this->message .= "<a href=\"{$this->payload->comment->html_url}\">comment</a> by <a href=\"{$this->payload->comment->user->html_url}\">@{$this->payload->comment->user->login}</a>\n\n";
-                $this->message .= " {$this->payload->comment->body}";
-                break;
             case 'pull_request':
                 if ($this->payload->action == "opened") {
                     $this->message .= "👷‍♂️🛠️ <b>New Pull Request</b> - <a href=\"{$this->payload->pull_request->html_url}\">{$this->payload->repository->full_name}#{$this->payload->pull_request->number}</a>\n\n";
