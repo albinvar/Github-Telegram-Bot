@@ -186,7 +186,7 @@ class GitHubBot
 
     public function accessDenied()
     {
-        $reply = "🔒 <b>Access Denied to Bot </b>🚫\n\nPlease contact adminstrator for further information, Thank You..";
+        $reply = "🔒 <b>Access Denied to Bot </b>🚫\n\nPlease contact administrator for further information, Thank You..";
         $content = array('chat_id' => $this->chatId, 'text' => $reply, 'disable_web_page_preview' => true, 'parse_mode' => "HTML");
         $this->telegram->sendMessage($content);
     }
