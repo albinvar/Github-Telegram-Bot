@@ -79,7 +79,7 @@ class GitHubBot
                 $this->message .= "\nPushed by : <b>{$this->payload->pusher->name}</b>\n";
                 break;
             case 'ping':
-                $this->message .= "♻️ <b>Connection Successfull</b>\n\n";
+                $this->message .= "♻️ <b>Connection Successful</b>\n\n";
                 break;
             case 'issues':
                 if ($this->payload->action == "opened") {
