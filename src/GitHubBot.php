@@ -15,6 +15,10 @@ class GitHubBot
     private $request;
     private $callbackId;
     private $callbackChatId;
+    private $text;
+    private $telegram;
+    private $result;
+    private $admId;
 
 
     public function __construct($api, $chatId)
