@@ -3,6 +3,8 @@
   <a href="https://test.com">
     <img src="https://i.ibb.co/SxLvgjs/Bot-banner.png" alt="logo" width="190" border="0">
   </a>
+<img src="https://img.shields.io/github/repo-size/albinvar/Github-Telegram-Bot">
+<a href="LICENCE"><img src="https://img.shields.io/apm/l/Github"></a>
 </p>
 
 Github Telegram Bot is a php bot for notifying Events from your github repository.
