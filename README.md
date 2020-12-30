@@ -4,7 +4,7 @@
     <img src="https://i.ibb.co/SxLvgjs/Bot-banner.png" alt="logo" width="190" border="0">
   </a>
 <img src="https://img.shields.io/github/repo-size/albinvar/Github-Telegram-Bot">
-<a href="LICENCE"><img src="https://img.shields.io/apm/l/Github"></a>
+<a href="LICENSE"><img src="https://img.shields.io/apm/l/Github"></a>
 </p>
 
 Github Telegram Bot is a php bot for notifying Events from your github repository.
@@ -21,6 +21,17 @@ Github Telegram Bot is a php bot for notifying Events from your github repositor
 ## Introduction
 
 This is the introduction section and a brief description is provided within this section.
+
+## Features 
+
+Get Instant Notifications for 
+
+- Pushes
+- Pull Request(open)
+- Comment
+- Issue(open)
+- Issue(close)
+- Merge
 
 ### Create a New Bot
 1. Add [@BotFather](https://telegram.me/botfather) to start conversation.
