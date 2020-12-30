@@ -14,7 +14,7 @@ Github Telegram Bot is a php bot for notifying Events from your github repositor
 - [Introduction](#introduction)
 - [Features](#features)
 - [Screenshots](#screenshots)
-- [Installation](#installation-heroku
+- [Installation](#installation-heroku)
 - [Contributing](#contributing)
 - [License](#license)
 
