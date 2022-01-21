@@ -18,7 +18,7 @@
         "php": "^8.0",
         "vlucas/phpdotenv": "^5.4",
         "ext-json": "*",
-        "eleirbag89/telegrambotphp": "^1.3",
+        "longman/telegram-bot": "*",
         "guzzlehttp/guzzle": "^7.2"
     },
     "require-dev": {
