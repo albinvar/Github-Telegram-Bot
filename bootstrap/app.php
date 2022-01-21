@@ -18,6 +18,6 @@ function getConfigs()
 }
 
 
-date_default_timezone_set($_ENV['TIMEZONE']);
+date_default_timezone_set($_ENV['TIMEZONE'] ?? 'Asia/Kolkata');
 
 

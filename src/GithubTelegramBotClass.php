@@ -1,10 +1,14 @@
 <?php
 
 namespace Albinvar\GithubTelegramBot;
-;
 
 class GithubTelegramBotClass
 {
+    /**
+     * @var mixed
+     */
+    private static mixed $config;
+
     public function __construct()
     {
         static::boot();
@@ -12,11 +16,24 @@ class GithubTelegramBotClass
 
     static public function boot()
     {
-        var_dump(getConfigs());
+        static::$config = static::getConfig();
     }
 
-    public static function call()
+    /**
+     * @return mixed
+     */
+    public static function getConfig(): mixed
     {
-        return static::$configs;
+        return getConfigs();
     }
+
+    /**
+     * @param mixed $config
+     */
+    public static function setConfig(mixed $config): void
+    {
+        self::$config = $config;
+    }
+
+
 }
