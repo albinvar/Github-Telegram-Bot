@@ -7,7 +7,7 @@ class GithubTelegramBotClass
     /**
      * @var mixed
      */
-    private static mixed $config;
+    public static mixed $config;
 
     public function __construct()
     {
@@ -34,6 +34,5 @@ class GithubTelegramBotClass
     {
         self::$config = $config;
     }
-
 
 }
