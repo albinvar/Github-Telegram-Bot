@@ -9,5 +9,6 @@ docs
 phpunit.xml
 psalm.xml
 vendor
+.env
 .php-cs-fixer.cache
 

@@ -4,4 +4,5 @@ namespace Albinvar\GithubTelegramBot;
 
 class GithubTelegramBotClass
 {
+
 }
