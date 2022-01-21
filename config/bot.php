@@ -26,4 +26,10 @@ return  [
      */
     'ADMINS' => $_ENV['ADMINS'] ?? ['ADMIN_1', 'ADMIN_2'],
 
+    /*
+    * The server url which your bot needs to communicate with.
+    *
+    */
+    'WEBHOOK_URL' => $_ENV['WEBHOOK_URL'] ?? "SET_YOUR_URL_HERE",
+
 ];

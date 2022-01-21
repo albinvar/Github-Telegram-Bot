@@ -17,6 +17,14 @@ function getConfigs()
    return include(__DIR__ . '/../config/bot.php');
 }
 
+function setConfigs()
+{
+    $config = getConfigs();
+    define('BOT_API_TOKEN', $config['BOT_API_TOKEN']);
+    define('BOT_USERNAME', $config['BOT_USERNAME']);
+    define('WEBHOOK_URL', $config['WEBHOOK_URL']);
+}
+
 
 date_default_timezone_set($_ENV['TIMEZONE'] ?? 'Asia/Kolkata');
 

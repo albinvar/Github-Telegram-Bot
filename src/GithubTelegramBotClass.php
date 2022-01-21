@@ -16,6 +16,7 @@ class GithubTelegramBotClass
 
     static public function boot()
     {
+        self::setConfig();
         static::$config = static::getConfig();
     }
 
@@ -32,7 +33,7 @@ class GithubTelegramBotClass
      */
     public static function setConfig(mixed $config): void
     {
-        self::$config = $config;
+        setConfigs();
     }
 
 }
