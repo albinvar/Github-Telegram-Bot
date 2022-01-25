@@ -30,6 +30,7 @@ class GitHubBot
         $admins = explode(" ", $chatId);
         if (empty($this->chatId)) {
             $this->admId = $admins;
+            $this->getPayload();
             foreach ($this->admId as $admin) {
                 $this->sendMessage($admin);
             }
@@ -118,7 +119,6 @@ class GitHubBot
 
     public function sendMessage($admin)
     {
-        $this->getPayload();
         $text = $this->charReplace();
         $method_url = 'https://api.telegram.org/bot'.$this->api.'/sendMessage';
         $url = $method_url.'?chat_id='.$admin.'&disable_web_page_preview=1&parse_mode=html&text='.$text;
